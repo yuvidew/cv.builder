@@ -39,7 +39,6 @@ export const SignUp = ({
 
     return (
         <div>
-            <h2 className=' text-center mt-[2rem] text-[1.5rem] text-stone-700 dark:text-stone-400'>Sign Up</h2>
             <form action="" className=' mt-4' onSubmit={handleSubmit} >
                 <div className=' flex items-center border-b border-b-stone-900 mt-4 dark:border-b-white'>
                     <User/>
