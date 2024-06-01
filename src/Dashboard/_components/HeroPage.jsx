@@ -3,6 +3,7 @@ import { ResumeLetterDialog } from './ResumeLetterDialog'
 
 export const HeroPage = () => {
     const user = JSON.parse(localStorage.getItem('cv_user'))
+    
     return (
         <section>
             <div className=' container border-b border-b-stone-300 dark:border-b-stone-600'>
@@ -18,8 +19,22 @@ export const HeroPage = () => {
                         </h1>
                         <p className=' dark:text-stone-300 text-stone-500 mt-2'>What do you want to create.</p>
                     </div>
-                    <ResumeLetterDialog title={'Resume'} />
-                    <ResumeLetterDialog title={'Cover letter'} />
+                    <ResumeLetterDialog 
+                        userId = {user._id} 
+                        url = "http://localhost:2000/api/post/create/resume"
+                        formTitle={"Create Resume"} 
+                        mutationKey = "resume" 
+                        title={'Resume'}  
+                        placeholder={"Enter resume name.."}
+                    />
+                    <ResumeLetterDialog 
+                        userId = {user._id} 
+                        url = "http://localhost:2000/api/post/create/cover-letter"
+                        formTitle={"Create Cover Letter"} 
+                        mutationKey = "covet letter" 
+                        title={'Cover letter'}  
+                        placeholder={"Enter cover letter name.."}
+                    />
                 </div>
             </div>
         </section>

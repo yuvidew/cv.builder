@@ -2,6 +2,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import { ThemeProvider } from './components/ThemeProvider'
 import { Suspense, lazy } from 'react'
+import { CreateResume } from './Dashboard/CreateResume/CreateResume'
+import { CreateCoverLetter } from './Dashboard/CreateCoverLetter/CreateCoverLetter'
 const ResumePage = lazy(() => import( './Resume/ResumePage'))
 const CoverLetterPage = lazy(() => import( './CoverLetter/CoverLetterPage'))
 const HomePage  = lazy(() => import('./Home/HomePage'))
@@ -16,9 +18,23 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element = {<HomePage/>}  />
-          <Route path='/dashboard' element = {<DashBoardPage/>}  />
-          <Route path='/dashboard/resume' element = {<ResumePage/>}  />
-          <Route path='/dashboard/cover' element = {<CoverLetterPage/>}  />
+          <Route path='/dashboard' element ={<DashBoardPage/>} />
+          <Route 
+              path='/dashboard/resume' 
+          >
+            <Route index 
+              element = {<ResumePage/>}  
+            />
+            <Route path=':id' element = {<CreateResume/>} />
+          </Route>
+          <Route 
+            path='/dashboard/cover-letter' 
+          >
+            <Route index 
+            element = {<CoverLetterPage/>}  
+            />
+            <Route path=':id' element = {<CreateCoverLetter/>} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </Suspense>
