@@ -12,7 +12,7 @@ export const CreateResume = () => {
 
     const {data , isPending} = useQuery({
         queryKey : ['find percentage'],
-        queryFn : () => fetchData(`http://localhost:2000/api/get/resume/percentage/${id}`)
+        queryFn : () => fetchData(`https://mern-cv-builder.onrender.com/api/get/resume/percentage/${id}`)
     })
 
     console.log("data" , data);

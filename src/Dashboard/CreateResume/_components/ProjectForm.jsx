@@ -20,7 +20,7 @@ export const ProjectForm = () => {
 
     const {mutate , isPending } = useMutation({
         mutationKey : ['add work experience'],
-        mutationFn : (data) => onCreate(`http://localhost:2000/api/post/create/resume/add-projects/${id}` , data)
+        mutationFn : (data) => onCreate(`https://mern-cv-builder.onrender.com/api/post/create/resume/add-projects/${id}` , data)
     })
 
     const inputList = [

@@ -65,7 +65,7 @@ export const EducationFrom = ({
 
     const {mutate , isPending  , isSuccess} = useMutation({
         mutationKey : ['add work experience'],
-        mutationFn : (data) => onCreate(`http://localhost:2000/api/post/create/resume/add-eduction-detail/${id}` , data)
+        mutationFn : (data) => onCreate(`https://mern-cv-builder.onrender.com/api/post/create/resume/add-eduction-detail/${id}` , data)
     })
 
     const onSubmit = (e) => {

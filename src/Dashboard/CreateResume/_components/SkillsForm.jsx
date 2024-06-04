@@ -16,7 +16,7 @@ export const SkillsForm = () => {
 
     const {mutate , isPending , isSuccess} = useMutation({
         mutationKey : ["add Skills"],
-        mutationFn : (data) => onCreate( `http://localhost:2000/api/post/create/resume/add-skills/${id}` , data) 
+        mutationFn : (data) => onCreate( `https://mern-cv-builder.onrender.com/api/post/create/resume/add-skills/${id}` , data) 
     })
 
     const onSubmit = (e) => {

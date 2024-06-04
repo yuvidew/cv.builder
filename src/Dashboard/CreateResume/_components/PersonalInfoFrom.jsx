@@ -27,7 +27,7 @@ export const PersonalInfoFrom = ({
 
   const {mutate , isPending , isSuccess} = useMutation({
     mutationKey : ['add personal info'],
-    mutationFn : (data) => onCreate(`http://localhost:2000/api/post/create/resume/add-personal-info/${id}` , data)
+    mutationFn : (data) => onCreate(`https://mern-cv-builder.onrender.com/api/post/create/resume/add-personal-info/${id}` , data)
   })
   const inputList = [
     {

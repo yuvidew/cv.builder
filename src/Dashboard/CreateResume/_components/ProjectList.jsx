@@ -29,7 +29,7 @@ export const ProjectList = ({
 
     const {mutate , isPending , isSuccess} = useMutation({
         mutationKey : ['get delete project'],
-        mutationFn : (projectName) => deleteById(`http://localhost:2000/api/delete/resume/delete-project/${id}/${projectName}`)
+        mutationFn : (projectName) => deleteById(`https://mern-cv-builder.onrender.com/api/delete/resume/delete-project/${id}/${projectName}`)
     })
 
     if(isSuccess){

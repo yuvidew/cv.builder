@@ -24,7 +24,7 @@ export const WorkExperience = ({
 
     const {mutate , isPending , isSuccess} = useMutation({
         mutationKey : ['add work experience'],
-        mutationFn : (data) => onCreate(`http://localhost:2000/api/post/create/resume/add-work-experience/${id}` , data)
+        mutationFn : (data) => onCreate(`https://mern-cv-builder.onrender.com/api/post/create/resume/add-work-experience/${id}` , data)
     })
 
     const inputList = [
