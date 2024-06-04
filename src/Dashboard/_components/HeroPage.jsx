@@ -21,7 +21,7 @@ export const HeroPage = () => {
                     </div>
                     <ResumeLetterDialog 
                         userId = {user._id} 
-                        url = "http://localhost:2000/api/post/create/resume"
+                        url = "https://mern-cv-builder.onrender.com/api/post/create/resume"
                         formTitle={"Create Resume"} 
                         mutationKey = "resume" 
                         title={'Resume'}  
@@ -29,7 +29,7 @@ export const HeroPage = () => {
                     />
                     <ResumeLetterDialog 
                         userId = {user._id} 
-                        url = "http://localhost:2000/api/post/create/cover-letter"
+                        url = "https://mern-cv-builder.onrender.com/api/post/create/cover-letter"
                         formTitle={"Create Cover Letter"} 
                         mutationKey = "covet letter" 
                         title={'Cover letter'}  

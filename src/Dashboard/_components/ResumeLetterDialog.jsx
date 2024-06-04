@@ -70,7 +70,7 @@ export const ResumeLetterDialog = ({
             <div 
                 className=' h-[10rem] lg:w-[20rem] w-full flex items-start justify-center flex-col cursor-pointer'
             >
-                <Card className = "w-full py-6 rounded-none border">
+                <Card className = "w-full py-6 rounded-sm ">
                     <div className=' lg:flex md:flex block items-center gap-4 px-5 h-full'>
                         {title == "Resume" ? (
                             <FileStack className=' h-8 w-8 text-green-600' />
