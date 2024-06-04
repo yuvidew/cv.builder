@@ -1,5 +1,5 @@
 import { ModeToggle } from '@/components/ui/ModeTogle'
-import React from 'react'
+import React, { useState } from 'react'
 import { Progress } from "@/components/ui/progress"
 import { ResumeFormWrapper } from './ResumeFormWrapper'
 import { useCreate } from '@/hook/useCreate'
@@ -9,13 +9,13 @@ const id = localStorage.getItem('resumeId')
 
 export const CreateResume = () => {
     const {fetchData} = useCreate()
+    const [title , setTitle] = useState('Personal Info')
 
     const {data , isPending} = useQuery({
         queryKey : ['find percentage'],
         queryFn : () => fetchData(`https://mern-cv-builder.onrender.com/api/get/resume/percentage/${id}`)
     })
 
-    console.log("data" , data);
 
     return (
         <div className='dark:bg-stone-800 h-[100vh]'>
@@ -27,11 +27,13 @@ export const CreateResume = () => {
                     </main>
                 </header>
                 <section >
-                    <h1 className=' text-[2.5rem] mt-4 text-stone-500 font-medium dark:text-stone-300'>Personal Info</h1>
+                    <h1 className=' text-[2.5rem] mt-4 text-stone-500 font-medium dark:text-stone-300'>{title}</h1>
                     <p className=' text-right'> {data}%</p>
                     <Progress className = "mt-6 h-[.7rem]" value={data} />
                 </section>
-                <ResumeFormWrapper/>
+                <ResumeFormWrapper 
+                    setTitle={setTitle}
+                />
             </div>
         </div>
     )

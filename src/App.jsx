@@ -14,7 +14,7 @@ function App() {
 
   return (
     <ThemeProvider  defaultTheme="dark" storageKey="vite-ui-theme">
-    <Suspense fallback = {<div className=' flex items-center justify-center h-[100vh]'> <Spinner/> </div>}>
+    <Suspense fallback = {<div className=' flex items-center dark:bg-stone-600 justify-center h-[100vh]'> <Spinner/> </div>}>
       <BrowserRouter>
         <Routes>
           <Route path='/' element = {<HomePage/>}  />

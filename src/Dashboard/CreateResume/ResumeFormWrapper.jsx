@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button'
-import { ArrowRight, ChevronRight } from 'lucide-react'
-import React, { useMemo } from 'react'
+import { ChevronRight } from 'lucide-react'
+import React, { useEffect, useMemo } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { PersonalInfoFrom } from './_components/PersonalInfoFrom'
 import { WorkExperience } from './_components/WorkExperience'
@@ -8,7 +8,9 @@ import { Projects } from './_components/Projects'
 import { EducationFrom } from './_components/EducationFrom'
 import { SkillsForm } from './_components/SkillsForm'
 
-export const ResumeFormWrapper = () => {
+export const ResumeFormWrapper = ({
+  setTitle
+}) => {
   const [formType , setFormType] = useSearchParams({
     q:'personal-info',
     onlyComputer : true
@@ -53,6 +55,10 @@ export const ResumeFormWrapper = () => {
 
   const theComp = useMemo(() => {
     return btnList.filter(ele => ele.url == select)
+  } , [select])
+
+  useEffect(() => {
+    setTitle(select)
   } , [select])
 
 
