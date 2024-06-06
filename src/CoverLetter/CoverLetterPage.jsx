@@ -3,6 +3,7 @@ import { SideBar } from '@/components/SideBar'
 import React from 'react'
 import { Container } from './_components/Container'
 
+
 const CoverLetterPage = () => {
     return (
         <div className=' dark:bg-stone-800 h-[100vh] flex items-start' >

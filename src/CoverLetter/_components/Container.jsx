@@ -6,7 +6,7 @@ import React from 'react'
 
 const id = JSON.parse(localStorage.getItem('cv_user'))
 
-export const iContainer = () => {
+export const Container = () => {
     const {fetchData} = useCreate();
     const {data , isPending , isError} = useQuery({
         queryKey : ['fetch cover letters'],
