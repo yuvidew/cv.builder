@@ -36,7 +36,7 @@ export const WorkExperience = ({
             name : 'company',
             value: 'company',
             placeholder : "Enter company name..",
-            size : "col-span-2"
+            size : "lg:col-span-2"
         },
         {
             name : 'jobDurationForm',
@@ -55,7 +55,7 @@ export const WorkExperience = ({
             value: 'jobExperience',
             placeholder : "Enter experience..",
             label : "Add Experience details",
-            size : "col-span-2"
+            size : "lg:col-span-2"
         },
     ]
 
@@ -77,10 +77,10 @@ export const WorkExperience = ({
     }
 
     return (
-        <div className='p-5'>
+        <div className='py-7'>
             <section className="">
                 <form className='' onSubmit={onSubmit}>
-                    <div className='grid grid-cols-2 gap-3'>
+                    <div className='grid lg:grid-cols-2 gap-3'>
                         {inputList.map((ele) => (
                             <div key={ele.name} className={` ${ele.size}  mb-5`}>
                                 <Label 

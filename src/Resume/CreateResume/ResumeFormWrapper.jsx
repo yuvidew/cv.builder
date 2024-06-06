@@ -7,7 +7,13 @@ import { WorkExperience } from './_components/WorkExperience'
 import { Projects } from './_components/Projects'
 import { EducationFrom } from './_components/EducationFrom'
 import { SkillsForm } from './_components/SkillsForm'
-
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+import { Footer } from '@/components/Footer'
 
 export const ResumeFormWrapper = ({
   setTitle
@@ -64,7 +70,27 @@ export const ResumeFormWrapper = ({
 
 
   return (
-    <section className='flex items-start gap-2 mt-4'>
+    <>
+    <section className='lg:hidden  mt-4 '>
+      <Accordion type="double" collapsible >
+          {btnList.map(ele => (
+              <AccordionItem value={ele.url} key={ele.url} className={""}>
+                  <AccordionTrigger 
+                      className = 'w-[100%] border py-4'
+                      key={ele.text} 
+                      onClick = {() => onSelect(ele.url)}
+                  >
+                      {ele.text}
+                  </AccordionTrigger>
+                  <AccordionContent className  = "">
+                      {theComp[0].comp }
+                  </AccordionContent>
+              </AccordionItem>
+          ))}
+      </Accordion>
+      <br />
+    </section>
+    <section className='lg:flex hidden items-start gap-2 mt-4'>
       <div className=' w-[15%]'>
           {btnList.map(ele => (
             <Button 
@@ -78,9 +104,10 @@ export const ResumeFormWrapper = ({
             </Button>
           ))}
       </div>
-      <div className=' w-[85%]'>
+      <div className=' w-[85%] h- p-5'>
         {theComp[0].comp}
       </div>
     </section>
+    </>
   )
 }

@@ -4,8 +4,9 @@ import { Progress } from "@/components/ui/progress"
 import { ResumeFormWrapper } from './ResumeFormWrapper'
 import { useCreate } from '@/hook/useCreate'
 import { useQuery } from '@tanstack/react-query'
-import { useParams } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
 import { Skeleton } from '@/components/ui/skeleton'
+import { Footer } from '@/components/Footer'
 
 
 export const CreateResume = () => {
@@ -19,36 +20,44 @@ export const CreateResume = () => {
     })
 
     return (
-        <div className='dark:bg-stone-800 h-[100vh]'>
-            <div className=' container '>
+        <div className='dark:bg-stone-800 h-[100vh] overflow-y-scroll'>
+            <div className=' container h-full'>
                 <header >
                     <main className='flex items-center justify-between h-[5rem]'>
-                        <h1 
-                            className=' lg:text-[2rem] md:text-[1.5rem] text-[1.3rem] font-medium text-blue-600 dark:text-stone-100'
-                            style={{
-                                textTransform : 'capitalize'
-                            }}
-                        >Cv.Builder</h1>
+                        <NavLink to={'/dashboard/cover-letter'}>
+                            <h1 
+                                className=' lg:text-[2rem] md:text-[1.5rem] text-[1.3rem] font-medium text-blue-600 '
+                                style={{
+                                    textTransform : 'capitalize'
+                                }}
+                            >   
+                                Cv.Builder
+                            </h1>
+                        </NavLink>
                         <ModeToggle/>
                     </main>
                 </header>
                 <section >
                     <h1 
-                        className=' text-[2.5rem] mt-4 text-stone-500 font-medium dark:text-stone-300'
+                        className=' lg:text-[2.5rem] md:text-[2rem] text-[1.6rem] mt-4 mb-[2.3rem] text-stone-500 lg:text-left text-center font-medium dark:text-stone-300'
                         style={{
                                 textTransform : 'capitalize'
                         }}
                     >{title}</h1>
-                    {isPending ? (
-                        <Skeleton className={'h-5 w-8'} />
-                    ) :(
-                        <p className=' text-right'> {data}%</p>
-                    )}
-                    <Progress className = "mt-6 h-[.7rem]" value={data} />
+                    <div className=' lg:block hidden'>
+                        {isPending ? (
+                            <Skeleton className={'h-5 w-8'} />
+                        ) :(
+                            <p className=' text-right'> {data}%</p>
+                        )}
+                        <Progress className = "mt-6 h-[.7rem]" value={data} />
+                    </div>
                 </section>
-                <ResumeFormWrapper 
-                    setTitle={setTitle}
-                />
+                <div className=' h-[50%]'>
+                    <ResumeFormWrapper 
+                        setTitle={setTitle}
+                    />
+                </div>
             </div>
         </div>
     )

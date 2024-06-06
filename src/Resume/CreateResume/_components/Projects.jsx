@@ -9,15 +9,15 @@ export const Projects = ({
     onAddType
 }) => {
     return (
-        <Tabs defaultValue={"project-form"} className="w-full p-5">
+        <Tabs defaultValue={"project-form"} className="w-full py-7">
             <TabsList>
                 <TabsTrigger value="project-form">Project Form</TabsTrigger>
                 <TabsTrigger value="project-list">Project list</TabsTrigger>
             </TabsList>
-            <TabsContent value="project-form" className = "pt-5">
+            <TabsContent value="project-form" className = "py-7">
                 <ProjectForm />
             </TabsContent>
-            <TabsContent value="project-list" className = "pt-5">
+            <TabsContent value="project-list" className = "py-7">
                 <ProjectList  onAddType = {onAddType} formType = {formType} />
             </TabsContent>
         </Tabs>

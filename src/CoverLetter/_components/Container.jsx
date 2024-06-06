@@ -15,19 +15,22 @@ export const Container = () => {
 
     return (
         <div className='container mt-3'>
-            <h1 className=' text-blue-500 text-[1.4rem] mt-4'>See your Cover Letter</h1>
+            <h1 className=' text-blue-500 text-[1.4rem] mt-4'> 
+                See your Cover Letter
+            </h1>
 
             <div className=' grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-3 mt-5'>
                 {isPending ? (
                     [1 ,2 ,3 ,4 ,5].map((ele) => (
-                        <Skeleton key={ele}  />
+                        <Skeleton key={ele} className={'h-[20rem]'}  />
                     ))
                     ):
                     (
-                    data && data.map((ele) => (
-                        <TheRCCard key={ele._id} ele={ele} />
-                    ))
-                )}
+                        data.map((ele) => (
+                            <TheRCCard key={ele._id} ele={ele} />
+                        ))
+                    )
+                }
             </div>
         </div>
     )

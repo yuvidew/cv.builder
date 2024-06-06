@@ -89,9 +89,9 @@ export const PersonalInfoFrom = ({
   }
 
   return (
-    <div className=' p-5'>
+    <div className='py-7'>
       <form className='' onSubmit={onSubmit}>
-        <div className='grid lg:grid-cols-2 gap-3'>
+        <div className='grid lg:grid-cols-2 grid-cols-1 gap-3'>
             {inputList.map((ele) => (
               <div key={ele.name} className=' mb-5'>
                 <Label 
@@ -112,7 +112,7 @@ export const PersonalInfoFrom = ({
               </div>
             ))}
 
-            <div className=' col-span-2'>
+            <div className=' lg:col-span-2'>
               <Label 
                 htmlFor = "objective"
                 className = " uppercase text-stone-600 dark:text-stone-300 text-[1rem] block mb-3"

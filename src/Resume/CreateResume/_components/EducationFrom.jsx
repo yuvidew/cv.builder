@@ -80,7 +80,7 @@ export const EducationFrom = ({
     }
 
     return (
-        <section className='p-5'>
+        <section className='py-7'>
             <form action="" onSubmit={onSubmit}>
                 <div className=' grid grid-cols-2 gap-2'>
                 {inputList.map((ele) => (

@@ -41,7 +41,7 @@ export const SkillsForm = () => {
 
 
     return (
-        <section className='p-5'>
+        <section className='py-7 mb-[5rem] h-[15rem]'>
             <form action="" onSubmit={onSubmit}>
                 <Label htmlFor = "skills" className = {`uppercase text-stone-600 dark:text-stone-300 text-[1rem] block mb-3`}>
                     Skills
@@ -61,7 +61,7 @@ export const SkillsForm = () => {
                         size = "sm" 
                         variant = "ghost" 
                         onClick = {() => onDelete(index)}
-                        className = "mr-3"
+                        className = "mr-3 mt-3 "
                     >
                         {ele} {" "} <X className=' h-5 w-5 ml-3' />
                     </Button>

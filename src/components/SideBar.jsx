@@ -34,7 +34,7 @@ export const SideBar = () => {
                         <NavLink 
                             key={ele.text} 
                             to={ele.link} 
-                            className={`flex items-center gap-1 h-[3rem] px-2 rounded-md mt-1 ${pathname.pathname == ele.link ? 'opacity-100 border-l-4 border-stone-700 dark:border-stone-300 bg-slate-100 dark:bg-stone-500 ' : 'opacity-50 '}`}
+                            className={`flex items-center gap-1 h-[3rem] px-2 rounded-md mt-1 ${pathname.pathname == ele.link ? 'opacity-100 border-l-4 border-blue-500 text-blue-500 dark:text-stone-100 bg-slate-100 dark:bg-stone-500 ' : 'opacity-50 '}`}
                         >
                             {ele.icon}
                             {ele.text}

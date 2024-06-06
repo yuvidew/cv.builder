@@ -11,7 +11,7 @@ const CoverLetterPage = () => {
                 <SideBar/>
             </div>
             <div className=' h-full lg:w-[85%] w-full'>
-                <Header/>
+                <Header url={'/dashboard/cover-letter'} />
                 <Container/>
             </div>
         </div>
