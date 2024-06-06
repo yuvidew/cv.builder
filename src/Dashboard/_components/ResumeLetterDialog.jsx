@@ -77,12 +77,13 @@ export const ResumeLetterDialog = ({
                         ) : (
                             <FileText className=' h-8 w-8 text-blue-500' />
                         )}
-                        <div className=''>
+                        <div className='mt-2'>
                             <h3 className=' font-medium text-[1.3rem] text-left'>{title}</h3>
                             <p className='text-[.8rem] mt-1 text-left'>Create from Scratch</p>
                         </div>
                     </div>
                 </Card>
+                <br />
             </div>
         </DialogTrigger>
         <DialogContent>

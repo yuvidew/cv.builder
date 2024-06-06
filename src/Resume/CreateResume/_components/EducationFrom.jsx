@@ -6,14 +6,16 @@ import { useCreate } from '@/hook/useCreate'
 import { useMutation } from '@tanstack/react-query'
 import { ChevronRight } from 'lucide-react'
 import React, { useState } from 'react'
+import { useParams } from 'react-router-dom'
 
-const id = localStorage.getItem('resumeId')
 
 export const EducationFrom = ({
     formType,
     onAddType
 }) => {
     const {onCreate} = useCreate()
+    const router = useParams()
+    console.log("object" , router.id);
     const [form , setForm] = useState({
         degreeCourse : '',
         instituteCollage : '',
@@ -65,7 +67,7 @@ export const EducationFrom = ({
 
     const {mutate , isPending  , isSuccess} = useMutation({
         mutationKey : ['add work experience'],
-        mutationFn : (data) => onCreate(`https://mern-cv-builder.onrender.com/api/post/create/resume/add-eduction-detail/${id}` , data)
+        mutationFn : (data) => onCreate(`https://mern-cv-builder.onrender.com/api/post/create/resume/add-eduction-detail/${router.id}` , data)
     })
 
     const onSubmit = (e) => {

@@ -1,12 +1,13 @@
 import { Button } from '@/components/ui/button'
 import { ChevronRight } from 'lucide-react'
 import React, { useEffect, useMemo } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { useParams, useSearchParams } from 'react-router-dom'
 import { PersonalInfoFrom } from './_components/PersonalInfoFrom'
 import { WorkExperience } from './_components/WorkExperience'
 import { Projects } from './_components/Projects'
 import { EducationFrom } from './_components/EducationFrom'
 import { SkillsForm } from './_components/SkillsForm'
+
 
 export const ResumeFormWrapper = ({
   setTitle

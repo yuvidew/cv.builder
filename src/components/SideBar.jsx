@@ -19,7 +19,7 @@ export const SideBar = () => {
         {
             text : 'Cover',
             icon : <SquareGanttChart className=' h-5 w-5 mr-1' />,
-            link : '/dashboard/cover'
+            link : '/dashboard/cover-letter'
         },
     ]
     return (

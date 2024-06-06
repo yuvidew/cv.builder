@@ -10,11 +10,11 @@ import { SideBar } from './SideBar'
 
 export const MobileNav = () => {
     return (
-        <Sheet>
+        <Sheet  >
         <SheetTrigger>
             <AlignRight />
         </SheetTrigger>
-        <SheetContent side = 'left'>
+        <SheetContent side = 'left' className  = "dark:bg-stone-600 border-none">
             <SideBar/>
         </SheetContent>
         </Sheet>

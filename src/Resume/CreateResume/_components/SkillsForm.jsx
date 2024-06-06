@@ -6,17 +6,19 @@ import { useCreate } from '@/hook/useCreate'
 import { useMutation } from '@tanstack/react-query'
 import { X } from 'lucide-react'
 import React, { useState } from 'react'
+import { useParams } from 'react-router-dom'
 
-const id = localStorage.getItem('resumeId')
 
 export const SkillsForm = () => {
-    const {onCreate} = useCreate() 
+    const {onCreate} = useCreate() ;
+    const router = useParams()
+    console.log("objeasdft" , router.id);
     const [skills , setSkills] = useState([])
     const [text , setText] = useState('')
 
     const {mutate , isPending , isSuccess} = useMutation({
         mutationKey : ["add Skills"],
-        mutationFn : (data) => onCreate( `https://mern-cv-builder.onrender.com/api/post/create/resume/add-skills/${id}` , data) 
+        mutationFn : (data) => onCreate( `https://mern-cv-builder.onrender.com/api/post/create/resume/add-skills/${router.id}` , data) 
     })
 
     const onSubmit = (e) => {

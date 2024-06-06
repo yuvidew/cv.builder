@@ -29,6 +29,7 @@ export const useCreate = () => {
             const res = await axios.delete(url);
             if(res.status == 201){
                 enqueueSnackbar(res.data.msg , { variant : "success"})
+                window.location.reload()
             }
         } catch (error) {
             enqueueSnackbar(res.data.msg , { variant : "error"})

@@ -1,57 +1,59 @@
 import Spinner from '@/components/ui/Spinner'
 import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { useCreate } from '@/hook/useCreate'
 import { useMutation } from '@tanstack/react-query'
 import { ChevronRight } from 'lucide-react'
+import { Input } from '@/components/ui/input'
 import React, { useState } from 'react'
-
+import { useParams } from 'react-router-dom'
 const id = localStorage.getItem('resumeId')
 
-export const WorkExperience = ({
-    formType,
-    onAddType
-}) => {
+export const ProjectForm = () => {
     const {onCreate} = useCreate()
     const [form , setForm] = useState({
-        company : '',
-        jobDurationForm : "",
-        jobDurationTo : "",
-        jobExperience : ""
+        projectName : '',
+        projectDetails : "",
+        projectStart : "",
+        projectEnd : "",
     })
 
-    const {mutate , isPending , isSuccess} = useMutation({
+    const router = useParams()
+
+
+    const {mutate , isPending } = useMutation({
         mutationKey : ['add work experience'],
-        mutationFn : (data) => onCreate(`https://mern-cv-builder.onrender.com/api/post/create/resume/add-work-experience/${id}` , data)
+        mutationFn : (data) => onCreate(`https://mern-cv-builder.onrender.com/api/post/create/resume/add-projects/${router.id}` , data)
     })
 
     const inputList = [
         {
-            label : 'Company name',
-            name : 'company',
-            value: 'company',
-            placeholder : "Enter company name..",
+            label : 'Project Name',
+            name : 'projectName',
+            value: 'projectName',
+            placeholder : "Enter project name..",
             size : "col-span-2"
         },
         {
-            name : 'jobDurationForm',
-            value: 'jobDurationForm',
-            placeholder : "Enter joining date..",
+            type : 'date',
+            name : 'projectStart',
+            value: 'projectStart',
+            placeholder : "Enter state date..",
             label : 'Joining Date'
         },
         {
-            name : 'jobDurationTo',
-            value: 'jobDurationTo',
-            placeholder : "Enter rezoning date..",
+            type : 'date',
+            name : 'projectEnd',
+            value: 'projectEnd',
+            placeholder : "Enter End date..",
             label : "Resignation Date"
         },
         {
-            name : 'jobExperience',
-            value: 'jobExperience',
-            placeholder : "Enter experience..",
-            label : "Add Experience details",
+            name : 'projectDetails',
+            value: 'projectDetails',
+            placeholder : "Enter project details..",
+            label : "Add Project details",
             size : "col-span-2"
         },
     ]
@@ -69,14 +71,11 @@ export const WorkExperience = ({
         mutate(form)
     }
 
-    if(isSuccess){
-        onAddType(formType)
-    }
 
     return (
-        <div className='p-5'>
-            <section className="">
-                <form className='' onSubmit={onSubmit}>
+        <div className=''>
+            <section className=''>
+                <form action="" onSubmit={onSubmit} >
                     <div className='grid grid-cols-2 gap-3'>
                         {inputList.map((ele) => (
                             <div key={ele.name} className={` ${ele.size}  mb-5`}>
@@ -86,7 +85,7 @@ export const WorkExperience = ({
                                     >
                                     {ele.label} <span className=' text-red-500'>*</span>
                                 </Label>
-                                { ele.name == 'jobExperience' ? (
+                                { ele.name == 'projectDetails' ? (
                                     <Textarea
                                         type = {ele.type}
                                         name = {ele.name}

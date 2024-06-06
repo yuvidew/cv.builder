@@ -2,8 +2,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import { ThemeProvider } from './components/ThemeProvider'
 import { Suspense, lazy } from 'react'
-import { CreateResume } from './Dashboard/CreateResume/CreateResume'
-import { CreateCoverLetter } from './Dashboard/CreateCoverLetter/CreateCoverLetter'
+import { CreateResume } from './Resume/CreateResume/CreateResume'
+import { CreateCoverLetter } from './CoverLetter/CreateCoverLetter/CreateCoverLetter'
 const ResumePage = lazy(() => import( './Resume/ResumePage'))
 const CoverLetterPage = lazy(() => import( './CoverLetter/CoverLetterPage'))
 const HomePage  = lazy(() => import('./Home/HomePage'))

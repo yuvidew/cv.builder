@@ -7,8 +7,8 @@ import { ChevronRight } from 'lucide-react'
 import { useCreate } from '@/hook/useCreate'
 import { useMutation } from '@tanstack/react-query'
 import Spinner from '@/components/ui/Spinner'
+import { useParams } from 'react-router-dom'
 
-const id = localStorage.getItem('resumeId')
 
 export const PersonalInfoFrom = ({
   formType,
@@ -25,9 +25,11 @@ export const PersonalInfoFrom = ({
     objective : ''
   })
 
+  const router = useParams()
+
   const {mutate , isPending , isSuccess} = useMutation({
     mutationKey : ['add personal info'],
-    mutationFn : (data) => onCreate(`https://mern-cv-builder.onrender.com/api/post/create/resume/add-personal-info/${id}` , data)
+    mutationFn : (data) => onCreate(`https://mern-cv-builder.onrender.com/api/post/create/resume/add-personal-info/${router.id}` , data)
   })
   const inputList = [
     {

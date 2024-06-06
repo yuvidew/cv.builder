@@ -12,24 +12,24 @@ import { Skeleton } from '@/components/ui/skeleton'
 import {Trash2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import Spinner from '@/components/ui/Spinner'
+import { useParams } from 'react-router-dom'
 
-
-const id = localStorage.getItem('resumeId')
 
 export const ProjectList = ({
     formType,
     onAddType
 }) => {
     const {fetchData , deleteById} = useCreate()
+    const router = useParams()
 
     const {data , isLoading , isError} = useQuery({
         queryKey : ['get project list'],
-        queryFn : () => fetchData(`http://localhost:2000/api/get/create/resume/get-projects/${id}`)
+        queryFn : () => fetchData(`http://localhost:2000/api/get/create/resume/get-projects/${router.id}`)
     })
 
     const {mutate , isPending , isSuccess} = useMutation({
         mutationKey : ['get delete project'],
-        mutationFn : (projectName) => deleteById(`https://mern-cv-builder.onrender.com/api/delete/resume/delete-project/${id}/${projectName}`)
+        mutationFn : (projectName) => deleteById(`https://mern-cv-builder.onrender.com/api/delete/resume/delete-project/${router.id}/${projectName}`)
     })
 
     if(isSuccess){
@@ -44,7 +44,7 @@ export const ProjectList = ({
                 <Skeleton className={'h-[5rem]'} />
             ) : (
                 data.map(ele => (
-                    <AccordionItem value={ele._id} className = "mt-5 bg-stone-700 rounded-md px-5">
+                    <AccordionItem key={ele._id} value={ele._id} className = "mt-5 bg-stone-700 rounded-md px-5">
                         <AccordionTrigger>
                             <h3>{ele.projectName}</h3>
                         </AccordionTrigger>
