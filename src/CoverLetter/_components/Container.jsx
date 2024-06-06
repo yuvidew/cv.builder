@@ -10,7 +10,7 @@ export const Container = () => {
     const {fetchData} = useCreate();
     const {data , isPending , isError} = useQuery({
         queryKey : ['fetch cover letters'],
-        queryFn : () => fetchData(`http://localhost:2000/api/get/all/cover-letter/${id._id}`)
+        queryFn : () => fetchData(`https://mern-cv-builder.onrender.com/api/get/all/cover-letter/${id._id}`)
     })
 
     return (

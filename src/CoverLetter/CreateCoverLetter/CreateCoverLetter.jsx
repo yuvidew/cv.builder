@@ -43,7 +43,7 @@ export const CreateCoverLetter = () => {
                     ) :(
                         <p className=' text-right'> {data}%</p>
                     )}
-                    <Progress className = "mt-6 h-[.7rem]" value={20} />
+                    <Progress className = "mt-6 h-[.7rem]" value={data} />
                 </section>
                 <LetterFormsWrapper setTitle={setTitle} />
             </div>
