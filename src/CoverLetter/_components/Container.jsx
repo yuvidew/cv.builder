@@ -15,14 +15,10 @@ export const Container = () => {
 
     return (
         <div className='container mt-3'>
-            <h1 className=' text-blue-500 text-[1.4rem] mt-4'> 
-                See your Cover Letter
-            </h1>
-
-            <div className=' grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-3 mt-5'>
+            <div className=' grid lg:grid-cols-4 md:grid-cols-2  sm:grid-cols-2 gap-3 mt-[2rem]'>
                 {isPending ? (
                     [1 ,2 ,3 ,4 ,5].map((ele) => (
-                        <Skeleton key={ele} className={'h-[20rem]'}  />
+                        <Skeleton key={ele} className={'lg:h-[20rem] md:h-[20rem] h-[15rem]'}  />
                     ))
                     ):
                     (

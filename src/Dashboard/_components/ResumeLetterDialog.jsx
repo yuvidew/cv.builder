@@ -71,26 +71,26 @@ export const ResumeLetterDialog = ({
                 className=' h-[10rem] lg:w-[20rem] w-full flex items-start justify-center flex-col cursor-pointer'
             >
                 <Card className = "w-full py-6 rounded-sm ">
-                    <div className=' lg:flex md:flex block items-center gap-4 px-5 h-full'>
+                    <div className=' lg:flex md:flex  items-center gap-4 px-5 h-full'>
                         {title == "Resume" ? (
                             <FileStack className=' h-8 w-8 text-green-600' />
                         ) : (
                             <FileText className=' h-8 w-8 text-blue-500' />
                         )}
                         <div className='mt-2'>
-                            <h3 className=' font-medium text-[1.3rem] text-left'>{title}</h3>
-                            <p className='text-[.8rem] mt-1 text-left'>Create from Scratch</p>
+                            <h3 className=' font-medium lg:text-[1.3rem] text-left'>{title}</h3>
+                            <p className='text-[.8rem] mt-1 text-left lg:block hidden'>Create from Scratch</p>
                         </div>
                     </div>
                 </Card>
                 <br />
             </div>
         </DialogTrigger>
-        <DialogContent>
+        <DialogContent className = "w-[90%]">
             <DialogHeader>
             <DialogTitle>{formTitle}</DialogTitle>
             <br />
-            <DialogDescription className = "text-left mt-3">
+            <DialogDescription className = "text-left mt-3 ">
                 <Input 
                     placeholder = {placeholder} 
                     value = {name}

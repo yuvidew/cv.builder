@@ -6,7 +6,6 @@ import { useCreate } from '@/hook/useCreate'
 import { useQuery } from '@tanstack/react-query'
 import { NavLink, useParams } from 'react-router-dom'
 import { Skeleton } from '@/components/ui/skeleton'
-import { Footer } from '@/components/Footer'
 
 
 export const CreateResume = () => {

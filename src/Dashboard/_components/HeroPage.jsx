@@ -8,7 +8,7 @@ export const HeroPage = () => {
         <section>
             <div className=' container border-b border-b-stone-300 dark:border-b-stone-600'>
                 <div className=' grid lg:grid-cols-3  gap-3 pt-5'>
-                    <div className=' h-[10rem] lg:col-span-1  col-span-2  flex items-start justify-center flex-col p-5'>
+                    <div className=' h-[10rem] lg:col-span-1  col-span-2  flex items-start justify-center flex-col '>
                         <h1 
                             style={{
                                 textTransform  : "capitalize"

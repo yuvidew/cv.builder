@@ -6,7 +6,7 @@ import { Container } from './_components/Container'
 
 const ResumePage = () => {
     return (
-        <div className=' dark:bg-stone-800  flex items-start' >
+        <div className=' dark:bg-stone-800  flex items-start h-[100vh]' >
             <div className=' h-full lg:w-[15%] lg:block hidden  border-r border-r-stone-300 dark:border-r-stone-700'>
                 <SideBar/>
             </div>
