@@ -13,33 +13,51 @@ const inputList = [
         type : "text",
         name : 'name',
         placeholder : 'Enter name..',
-        value : 'name'
+        value : 'name',
+        label : 'Name',
     },
     {
         type :'email',
         name : 'email',
         placeholder : 'Enter email..',
-        value : 'email'
+        value : 'email',
+        label : 'Email',
     },
     {
         type : "number",
         name : 'number',
         placeholder : 'Enter phone number..',
-        value : 'number'
-    },
-    {
-        type : "text",
-        name : 'profession',
-        placeholder : 'Enter your profession..',
-        value : 'profession'
+        value : 'number',
+        label : 'Phone Number',
     },
     {
         type : "text",
         name : 'address',
         placeholder : 'Enter address..',
-        value : 'address'
+        value : 'address',
+        label : 'Address',
     },
-    
+    {
+        type : "number",
+        name : 'zipCode',
+        placeholder : 'Enter zipCode..',
+        value : 'zipCode',
+        label : 'Zip Code'
+    },
+    {
+        type : "text",
+        name : 'city',
+        placeholder : 'Enter city..',
+        value : 'city',
+        label : 'City',
+    },
+    {
+        type : "text",
+        name : 'state',
+        placeholder : 'Enter state..',
+        value : 'state',
+        label : 'State',
+    },
 ]
 
 export const PersonalInfoFrom = ({
@@ -50,10 +68,12 @@ export const PersonalInfoFrom = ({
     const {onCreate} = useCreate()
     const [form , setForm] = useState({
         name : '',
-        profession : '',
         address : '',
         number : '',
         email : '',
+        city : "",
+        state : '',
+        zipCode : '',
     })
 
     const {mutate , isPending , isSuccess} = useMutation({
@@ -87,9 +107,9 @@ export const PersonalInfoFrom = ({
                     <div key={ele.name} className=' mb-5'>
                         <Label 
                             htmlFor="email"
-                            className = " uppercase text-stone-600 dark:text-stone-300 text-[1rem] block mb-3"
+                            className = " capitalize text-stone-600 dark:text-stone-300 text-[1rem] block mb-3"
                         >
-                            {ele.name} <span className=' text-red-500'>*</span>
+                            {ele.label} <span className=' text-red-500'>*</span>
                         </Label>
                         <Input 
                             type = {ele.type}

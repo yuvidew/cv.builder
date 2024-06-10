@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Label } from "@/components/ui/label"
 import { useCreate } from '@/hook/useCreate'
 import { useMutation } from '@tanstack/react-query'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { ChevronRight } from 'lucide-react'
 import Spinner from '@/components/ui/Spinner'
 import { Button } from '@/components/ui/button'
@@ -11,6 +11,7 @@ import { Textarea } from "@/components/ui/textarea"
 
 export const LetterDesFrom = () => {
     const {id} = useParams()
+    const router = useNavigate()
     const {onCreate} = useCreate()
     const [form , setForm] = useState({
         letterText : '',
@@ -35,13 +36,17 @@ export const LetterDesFrom = () => {
         mutate(form)
     }
 
+    if(isSuccess){
+        router(`/cover-letter/${id}`)
+    }
+
     return (
         <div className=' p-5'>
             <form action="" onSubmit={onSubmit} >
                 <div  className=' mb-5'>
                     <Label 
                         htmlFor="email"
-                        className = " uppercase text-stone-600 dark:text-stone-300 text-[1rem] block mb-3"
+                        className = " capitalize text-stone-600 dark:text-stone-300 text-[1rem] block mb-3"
                     >
                         Letter Description <span className=' text-red-500'>*</span>
                     </Label>

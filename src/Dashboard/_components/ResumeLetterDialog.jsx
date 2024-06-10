@@ -68,7 +68,7 @@ export const ResumeLetterDialog = ({
         <Dialog>
         <DialogTrigger className=' '>
             <div 
-                className=' h-[10rem] lg:w-[20rem] w-full flex items-start justify-center flex-col cursor-pointer'
+                className=' h-[10rem] lg:w-[20re] w-full flex items-start justify-center flex-col cursor-pointer'
             >
                 <Card className = "w-full py-6 rounded-sm ">
                     <div className=' lg:flex md:flex  items-center gap-4 px-5 h-full'>
@@ -86,7 +86,7 @@ export const ResumeLetterDialog = ({
                 <br />
             </div>
         </DialogTrigger>
-        <DialogContent className = "w-[90%]">
+        <DialogContent className = "w-[30%]">
             <DialogHeader>
             <DialogTitle>{formTitle}</DialogTitle>
             <br />

@@ -11,33 +11,45 @@ import { Button } from '@/components/ui/button'
 const inputList = [
     {
         type : "text",
-        name : 'recipient',
-        placeholder : 'Enter recipient..',
-        value : 'recipient'
+        name : 'position',
+        placeholder : 'Enter position..',
+        value : 'position',
+        label : 'Position'
     },
     {
         type :'text',
         name : 'companyName',
         placeholder : 'Enter company name..',
-        value : 'companyName'
+        value : 'companyName',
+        label : 'company Name'
     },
     {
         type : "text",
         name : 'streetAddress',
         placeholder : 'Enter street address..',
-        value : 'streetAddress'
+        value : 'streetAddress',
+        label : 'Street Address',
     },
     {
         type : "text",
-        name : 'city',
-        placeholder : 'Enter your city..',
-        value : 'city'
+        name : 'companyCity',
+        placeholder : 'Enter company city..',
+        value : 'companyCity',
+        label : 'City',
     },
     {
         type : "text",
-        name : 'state',
-        placeholder : 'Enter state..',
-        value : 'state'
+        name : 'companyState',
+        placeholder : 'Enter company state..',
+        value : 'companyState',
+        label : ' State',
+    },
+    {
+        type : "number",
+        name : 'companyZipCode',
+        placeholder : 'Enter company zip code..',
+        value : 'companyZipCode',
+        label : 'zip code',
     },
     
 ]
@@ -49,11 +61,11 @@ export const EmployerInfoFrom = ({
     const {id} = useParams()
     const {onCreate} = useCreate()
     const [form , setForm] = useState({
-        recipient : '',
+        position : '',
         companyName : '',
         streetAddress : '',
-        city : '',
-        state : '',
+        companyCity : '',
+        companyState : '',
     })
 
     const {mutate , isPending , isSuccess} = useMutation({
@@ -87,9 +99,9 @@ export const EmployerInfoFrom = ({
                     <div key={ele.name} className=' mb-5'>
                         <Label 
                             htmlFor="email"
-                            className = " uppercase text-stone-600 dark:text-stone-300 text-[1rem] block mb-3"
+                            className = " capitalize text-stone-600 dark:text-stone-300 text-[1rem] block mb-3"
                         >
-                            {ele.name} <span className=' text-red-500'>*</span>
+                            {ele.label} <span className=' text-red-500'>*</span>
                         </Label>
                         <Input 
                             type = {ele.type}

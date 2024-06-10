@@ -2,6 +2,7 @@ import React from 'react'
 import { SideBar } from '@/components/SideBar'
 import { Header } from '../components/Header'
 import { HeroPage } from './_components/HeroPage'
+import { UserLetterREsume } from './_components/UserLetterREsume'
 
 const DashBoardPage = () => {
     return (
@@ -9,9 +10,10 @@ const DashBoardPage = () => {
             <div className=' h-full lg:w-[15%] lg:block hidden  border-r border-r-stone-300 dark:border-r-stone-700'>
                 <SideBar/>
             </div>
-            <div className=' h-full lg:w-[85%] w-full'>
+            <div className=' h-full lg:w-[85%] w-full overflow-y-auto'>
                 <Header/>
                 <HeroPage/>
+                <UserLetterREsume/>
             </div>
         </div>
     )

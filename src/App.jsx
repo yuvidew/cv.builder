@@ -4,6 +4,8 @@ import { ThemeProvider } from './components/ThemeProvider'
 import { Suspense, lazy } from 'react'
 import { CreateResume } from './Resume/CreateResume/CreateResume'
 import { CreateCoverLetter } from './CoverLetter/CreateCoverLetter/CreateCoverLetter'
+import { Resume } from './components/Resume'
+import { Cover } from './components/Cover'
 const ResumePage = lazy(() => import( './Resume/ResumePage'))
 const CoverLetterPage = lazy(() => import( './CoverLetter/CoverLetterPage'))
 const HomePage  = lazy(() => import('./Home/HomePage'))
@@ -19,22 +21,20 @@ function App() {
         <Routes>
           <Route path='/' element = {<HomePage/>}  />
           <Route path='/dashboard' element ={<DashBoardPage/>} />
-          <Route 
-              path='/dashboard/resume' 
-          >
+          <Route path='/dashboard/resume' >
             <Route index 
               element = {<ResumePage/>}  
             />
             <Route path=':id' element = {<CreateResume/>} />
           </Route>
-          <Route 
-            path='/dashboard/cover-letter' 
-          >
+          <Route path='/dashboard/cover-letter' >
             <Route index 
-            element = {<CoverLetterPage/>}  
+              element = {<CoverLetterPage/>}  
             />
             <Route path=':id' element = {<CreateCoverLetter/>} />
           </Route>
+          <Route path='/resume/:id' element = {<Resume/>} />
+          <Route path='/cover-letter/:id' element = {<Cover/>} />
         </Routes>
       </BrowserRouter>
     </Suspense>
