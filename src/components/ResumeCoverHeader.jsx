@@ -16,8 +16,8 @@ export const ResumeCoverHeader = ({
                             Cv.Builder
                         </h1>
                     </NavLink>
-                    <Button onClick = {onDownload} variant = 'green' >
-                        <Download className=' mr-2 h-5 w-5' /> Download
+                    <Button size = "sm" onClick = {onDownload} variant = 'green' >
+                        <Download className=' lg:mr-2 md:mr-2 h-5 w-5' /> <span className='lg:block md:block hidden'>Download</span>
                     </Button>
                 </main>
             </div>

@@ -9,6 +9,7 @@ import Spinner from './ui/Spinner';
 import darkImg from '@/assets/failed-dark.png'
 import lightImg from '@/assets/failed.png'
 import { Footer } from './Footer';
+import { Mail, MapPin, Phone } from 'lucide-react';
 
 export const Cover = () => {
     const {fetchData} = useCreate()
@@ -61,19 +62,58 @@ export const Cover = () => {
     return (
         <div className=' dark:bg-stone-800'>
             <ResumeCoverHeader onDownload={onDownload} url={'/dashboard/cover-letter'} />
-            <div className=' container w-[55%] m-auto py-[2rem]'>
-                <div ref={resumeRef} className='w-[210mm] h-[297mm]  py-10 px-8 bg-white text-black'>
-                    <section className=' flex items-center justify-between'>
-                        <div>
-                            <h1 className=' lg:text-[2rem] text-[2rem] font-bold capitalize'>{data.name} </h1>
-                            <p>{data.profession}</p>
+            <div className=' container sm:px-3  flex items-center justify-center mt-[2rem]'>
+                <div ref={resumeRef} className='lg:w-[210mm] md:w-[170mm] sm:w-[150mm] w-full m-auto lg:h-[250mm] md:h-[240mm] sm:h-[180mm] h-[170mm] py-5 px-4 bg-white text-black'>
+                    <section className=' flex items-start justify-between'>
+                        <div className='w-[60%]'>
+                            <h1 className=' text-[1.3rem]  font-bold capitalize'>{data.name} </h1>
+                            <p className=' text-[.7rem] text-blue-600 mt-1'>{data.profession}</p>
 
-                            
+                            <div className=' mt-3'>
+                                <span className=' text-[.8rem] text-stone-500'>To,</span>
+                                <p className=' text-[.8rem]' >{data.position}</p>
+                                <p className=' text-[.8rem]' >{data.companyName}</p>
+                                <p className=' text-[.8rem]' >{data.streetAddress}</p>
+                                <p className=' text-[.8rem]' >{data.companyCity} , {data.companyState} , {data.companyZipCode}</p>
+                            </div>
                         </div>
+                        <div className='w-[40%]'>
+                            <ul>
+                                <li className=' flex items-center justify-end  mb-2 gap-2'>
+                                    <span className=' text-[.7rem]'>
+                                        {data.email} 
+                                    </span>
+                                    <Mail className='h-[.8rem] w-[.8rem] text-blue-600'/>
+                                </li>
+                                <li className=' flex items-center justify-end mb-2  gap-2'>
+                                    <span className=' text-[.7rem]'>
+                                        {data.number} 
+                                    </span>
+                                    <Phone className='h-[.8rem] w-[.8rem] text-blue-600'/>
+                                </li>
+                                <li className=' flex items-center justify-end mb-2  gap-2'>
+                                    <span className=' text-[.7rem]'>
+                                        {data.city} , {data.state} {data.zipCode}
+                                    </span>
+                                    <MapPin className='h-[.8rem] w-[.8rem] text-blue-600'/>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                    <section className=' mt-[2rem]'>
+                        <p className='text-[.9rem]'>Dear {data.position},</p>
+
+                        <p className=' mt-3 text-[.9rem]'>{data.letterText}</p>
+                    </section>
+                    <section className=' mt-[3rem] text-[.9rem]'>
+                        <p>Sincerely</p>
+                        <h3 className=' font-medium'>{data.name}</h3>
                     </section>
                 </div>
             </div>
-            <div className=' container'>
+            <br />
+            <br />
+            <div className=' container pb-2'>
                 <Footer/>
                 <br />
             </div>
