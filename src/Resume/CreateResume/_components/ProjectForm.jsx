@@ -40,14 +40,14 @@ export const ProjectForm = () => {
             name : 'projectStart',
             value: 'projectStart',
             placeholder : "Enter state date..",
-            label : 'Joining Date'
+            label : 'Starting Date'
         },
         {
             type : 'date',
             name : 'projectEnd',
             value: 'projectEnd',
             placeholder : "Enter End date..",
-            label : "Resignation Date"
+            label : "Ending Date"
         },
         {
             name : 'projectDetails',
