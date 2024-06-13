@@ -1,10 +1,11 @@
-import { FileText, Home, SquareGanttChart } from 'lucide-react'
+import { FileText, Home, Power, SquareGanttChart } from 'lucide-react'
 import React from 'react'
-import { NavLink, useLocation, useParams } from 'react-router-dom'
+import { NavLink, useLocation, useNavigate } from 'react-router-dom'
+import { Button } from './ui/button'
 
 export const SideBar = () => {
     const pathname = useLocation()
-    console.log(pathname.pathname);
+    const navigate = useNavigate()
     const navLink = [
         {
             text : 'DashBoard',
@@ -22,14 +23,19 @@ export const SideBar = () => {
             link : '/dashboard/cover-letter'
         },
     ]
+
+    const onLogout = () => {
+        localStorage.removeItem('cv_user_token')
+        navigate('/')
+    }
     return (
         <header className=' h-full  px-5 py-4'>
             <div className=' h-[4rem] flex items-start justify-start'>
                 <h1 className='  text-[1.3rem] font-bold'>Cv.Builder</h1>
             </div>
-            <main>
+            <main className=' h-[80%]'>
                 <h3 className=' uppercase text-[.9rem]'>Menu</h3>
-                <nav className=' mt-4'>
+                <nav className=' mt-4 '>
                     {navLink.map((ele) => (
                         <NavLink 
                             key={ele.text} 
@@ -42,6 +48,12 @@ export const SideBar = () => {
                     ))}
                 </nav>
             </main>
+            <div className=' h-[10%]  flex items-center justify-center'>
+                <Button variant = "dark" size = "sm" onClick  = {onLogout} >
+                    <Power className=' h-4 w-4 mr-2 text-red-500' />
+                    Logout
+                </Button>
+            </div>
         </header>
     )
 }
